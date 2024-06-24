@@ -10,7 +10,7 @@ Last revision: June 2024.
 - 🚨 You **must** complete the [DBC builder setup steps](https://docs.docker.com/build/cloud/setup/#steps) 🚨
 - Docker Desktop / CLI
 - [Pulumi CLI](https://www.pulumi.com/docs/get-started/install/)
-- *Recommended* [Pulumi Cloud account](https://app.pulumi.com/signup)
+- *Recommended* [Pulumi Cloud account (free works)](https://app.pulumi.com/signup)
 - [npm](https://www.npmjs.com/get-npm)
 
 ## 👩‍🏫 Get started
@@ -40,7 +40,7 @@ Once copied to your machine, feel free to edit as needed. I've added [./example]
 
   ```yaml
   values:
-    environmentVariables:
+    pulumiConfig:
       DOCKER_PAT:
         fn::secret: dckr_pat_abc123
       DOCKER_DBC_ORG: "pulumidockerdemo"

@@ -6,6 +6,6 @@ runtime: nodejs
 template:
   description: Builds a remote Dockerfile using Docker Build Cloud and pushes to DockerHub.
   config:
-    env:
+    envName:
       description: Your Pulumi Cloud ESC Environment (e.g., docker-env)
       default: docker-env

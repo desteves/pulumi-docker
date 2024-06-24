@@ -1,14 +1,16 @@
 // Copyright 2024, Pulumi Corporation.  All rights reserved.
+
 import * as dockerBuild from "@pulumi/docker-build";
 import * as pulumi from "@pulumi/pulumi"; // Required for Config
 
 // Get the configuration values
+// from the Pulumi.<stack>.yaml file
 const config = new pulumi.Config();
 
 // Example, "cloud-pulumidockerdemo-my-cool-builder", 
 // where "my-cool-builder" is the name of the builder, 
 // and "pulumidockerdemo" is the DBC organization.
-const builder = "cloud-" + config.require("DOCKER_DBC_ORG") + "-" + config.require("DOCKER_DBC_BUILDER_NAME");
+const builderInstance = "cloud-" + config.require("DOCKER_DBC_ORG") + "-" + config.require("DOCKER_DBC_BUILDER_NAME");
 const dockerUsr = config.require("DOCKER_USR");
 
 // Push the image to Docker Hub once built in DBC, edit as needed
@@ -19,10 +21,10 @@ const tag = registryAddress + "/" + dockerUsr + "/" + config.require("DOCKER_TAG
 new dockerBuild.Image("image", {
     exec: true,
     builder: {
-        name: builder,
+        name: builderInstance,
     },
     context: {
-        location: "http://github.com/mikesir87/madlib-chatbot.git",
+        location: config.require("DOCKERFILE_REPO"),
     },
     platforms: [
         dockerBuild.Platform.Linux_amd64,

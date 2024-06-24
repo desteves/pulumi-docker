@@ -1,0 +1,11 @@
+# Configure project names and descriptions with values obtained from `pulumi new`
+name: ${PROJECT}
+description: ${DESCRIPTION}
+runtime: nodejs
+
+template:
+  description: Builds a remote Dockerfile using Docker Build Cloud and pushes to DockerHub.
+  config:
+    envName:
+      description: Your Pulumi Cloud ESC Environment (e.g., docker-env)
+      default: docker-env

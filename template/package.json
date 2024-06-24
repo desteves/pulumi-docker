@@ -1,5 +1,5 @@
 {
-    "name": "dockerbuildcloud-ts",
+    "name": "ci-demo",
     "main": "index.ts",
     "devDependencies": {
         "@types/node": "^20.14.8"

@@ -12,5 +12,5 @@
         "noImplicitReturns": true,
         "forceConsistentCasingInFileNames": true
     },
-    "files": ["template/index.ts"]
+    "files": ["example/index.ts"]
 }

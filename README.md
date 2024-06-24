@@ -1,6 +1,6 @@
 # Template to build *any* Docker image with Docker Build Cloud (DBC)
 
-Builds a Docker Image from *any* repository (or URL via remote context). This template prompts the user for an existing Pulumi ESC Environment with the variables shown below.
+Builds a Docker Image from *any* repository (or URL via remote context).
 
 Last revision: June 2024.
 

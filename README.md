@@ -1,12 +1,6 @@
 # Template to build *any* Docker image with Docker Build Cloud (DBC)
 
-Builds a Docker Image from any repository (or URL via remote context). This template prompts the user for an existing Pulumi ESC Environment with the variables shown below.
-
-Example ESC Environment:
-
-```yaml
-todo
-```
+Builds a Docker Image from *any* repository (or URL via remote context). This template prompts the user for an existing Pulumi ESC Environment with the variables shown below.
 
 Last revision: June 2024.
 
@@ -21,19 +15,44 @@ Last revision: June 2024.
 
 ## 👩‍🏫 Get started
 
-This Pulumi example is written as a template. It is meant to be copied via `pulumi new` as follows:
+This Pulumi program is written as a template. It is meant to be copied via `pulumi new`.
+
+### Copy the template
 
 ```bash
-$ pulumi new https://github.com/pulumi/examples/tree/master/dockerbuild-ts-dbc
-$ npm install
+pulumi new https://github.com/desteves/pulumi-docker/tree/main/template
+npm install
 ```
 
-Once copied to your machine, feel free to edit as needed.
+Once copied to your machine, feel free to edit as needed. I've added [./example](./example/) for an instance of the template to compare.
 
-Alternatively, click the button below to use [Pulumi Deployments](https://www.pulumi.com/docs/pulumi-cloud/deployments/) to deploy this app:
+### Setup a ESC Environment
 
-[![Deploy this example with Pulumi](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/dockerbuild-ts-dbc/README.md#gh-light-mode-only)
-[![Deploy this example with Pulumi](https://get.pulumi.com/new/button-light.svg)](https://app.pulumi.com/new?template=https://github.com/pulumi/examples/blob/master/dockerbuild-ts-dbc/README.md#gh-dark-mode-only)
+- Create a [Pulumi ESC Environment](https://www.pulumi.com/docs/esc/) named `docker-env`:
+
+  ```yaml
+  values:
+    environmentVariables:
+      DOCKER_PAT:
+        fn::secret: dckr_pat_abc123
+      DOCKER_DBC_ORG: "pulumidockerdemo"
+      DOCKER_DBC_BUILDER_NAME: "my-cool-builder"
+      DOCKER_TAG: "madlib-chatbot:latest"
+      DOCKER_USR: "nullstring"
+      DOCKERFILE_REPO: "http://github.com/mikesir87/madlib-chatbot.git"
+  ```
+
+- Add to your `Pulumi.<stack>.yaml` file:
+
+  ```bash
+  pulumi config env add docker-env
+  ```
+
+### (Optional) Add Pulumi Deployments
+
+```bash
+echo "TODO"
+```
 
 ## 🎬 How to run
 

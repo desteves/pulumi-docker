@@ -1,8 +1,14 @@
-# Example to build a Docker image with Docker Build Cloud (DBC)
+# Template to build *any* Docker image with Docker Build Cloud (DBC)
 
-Builds a Docker Image from an NGINX local Dockerfile. This template prompts the user for an existing DBC builder.
+Builds a Docker Image from any repository (or URL via remote context). This template prompts the user for an existing Pulumi ESC Environment with the variables shown below.
 
-Last revision: May 2024.
+Example ESC Environment:
+
+```yaml
+todo
+```
+
+Last revision: June 2024.
 
 ## 📋 Pre-requisites
 

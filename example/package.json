@@ -1,6 +1,6 @@
 {
     "name": "ci-demo",
-    "main": "index.ts",
+    "main": "src/index.ts",
     "devDependencies": {
         "@types/node": "^20.14.8"
     },

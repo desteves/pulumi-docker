@@ -17,18 +17,26 @@ Last revision: June 2024.
 
 This Pulumi program is written as a template. It is meant to be copied via `pulumi new`.
 
-### Copy the template
+### 1. Copy the template
 
 ```bash
+# run this in a new empty directory
 pulumi new https://github.com/desteves/pulumi-docker/tree/main/template
-npm install
+
+# update deps
+npm install -g npm-check-updates && ncu -u && npm install
 ```
 
 Once copied to your machine, feel free to edit as needed. I've added [./example](./example/) for an instance of the template to compare.
 
-### Setup a ESC Environment
+### 2. Setup a ESC Environment
 
 - Create a [Pulumi ESC Environment](https://www.pulumi.com/docs/esc/) named `docker-env`:
+
+  ```bash
+  pulumi env init docker-env  --non-interactive
+  pulumi env edit docker-env
+  ```
 
   ```yaml
   values:
@@ -42,13 +50,13 @@ Once copied to your machine, feel free to edit as needed. I've added [./example]
       DOCKERFILE_REPO: "http://github.com/mikesir87/madlib-chatbot.git"
   ```
 
-- Add to your `Pulumi.<stack>.yaml` file:
+- Add ESC to your `Pulumi.<stack>.yaml` file:
 
   ```bash
-  pulumi config env add docker-env
+  pulumi config env add docker-env --yes --non-interactive
   ```
 
-### (Optional) Add Pulumi Deployments
+### 3. (Optional) Add Pulumi Deployments
 
 ```bash
 echo "TODO"
